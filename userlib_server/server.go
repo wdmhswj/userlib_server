@@ -25,6 +25,8 @@ func main() {
 	http.HandleFunc("/datastoreSet", postHandler_datastoreSet)
 	http.HandleFunc("/keystoreGet", postHandler_keystoreGet)
 	http.HandleFunc("/datastoreDelete", postHandler_datastoreDelete)
+	http.HandleFunc("/datastoreDeleteAll", postHandler_datastoreDeleteAll)
+	http.HandleFunc("/keystoreDeleteAll", postHandler_keystoreDeleteAll)
 
 	// 启动 HTTP 服务器，监听在 8080 端口
 	fmt.Println("Server listening on port 8080...")

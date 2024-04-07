@@ -212,3 +212,35 @@ func postHandler_datastoreDelete(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte("nil"))
 }
+
+func postHandler_datastoreDeleteAll(w http.ResponseWriter, r *http.Request) {
+	log.Println("postHandler_datastoreDeleteAll:")
+	// 仅处理 POST 请求
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// 清除 datastore 中的所有数据
+	datastoreClear()
+
+	// 返回响应
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("nil"))
+}
+
+func postHandler_keystoreDeleteAll(w http.ResponseWriter, r *http.Request) {
+	log.Println("postHandler_keystoreDeleteAll:")
+	// 仅处理 POST 请求
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// 清除 keystore 中的所有数据
+	keystoreClear()
+
+	// 返回响应
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("nil"))
+}
